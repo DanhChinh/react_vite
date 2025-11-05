@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const refresh = async () => {
       try {
-        const res = await fetch("https://yourdomain.com/RefreshToken.php", {
+        const res = await fetch("https://cyan.io.vn/api/refreshToken.php", {
           credentials: "include", // quan trọng để gửi cookie httpOnly
         });
         const data = await res.json();
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
   // Đăng nhập
   const login = async (username, password) => {
     try {
-      const res = await fetch("https://yourdomain.com/Login.php", {
+      const res = await fetch("https://cyan.io.vn/api/login.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // để nhận cookie refresh_token
@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
 
   // Đăng xuất
   const logout = async () => {
-    await fetch("https://yourdomain.com/Logout.php", {
+    await fetch("https://cyan.io.vn/api/logout.php", {
       credentials: "include",
     });
     setUser(null);
